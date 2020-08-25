@@ -13,5 +13,6 @@ namespace SearchAndFilter.Models
         public string EventKeyword { get; set; }
         public string EventSort { get; set; }
         public int CategoryId { get; set; }
+        public Category Category { get; set; }
     }
 }

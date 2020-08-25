@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SearchAndFilter.Models;
 
 namespace SearchAndFilter.Migrations
 {
     [DbContext(typeof(CategoryEventContext))]
-    partial class SearchDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200825051012_addedPropertyNavigation")]
+    partial class addedPropertyNavigation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
