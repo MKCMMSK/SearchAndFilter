@@ -17,6 +17,8 @@ namespace SearchAndFilter
 {
     public class Startup
     {
+        readonly string MyAlloweSpecificOrigins = "_myallowSpecificOrigins";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -27,6 +29,13 @@ namespace SearchAndFilter
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options => {
+                options.AddPolicy(name: MyAlloweSpecificOrigins,
+                                  builder =>
+                                  {
+                                      builder.WithOrigins("http://localhost:3000");
+                                  });
+            });
             services.AddControllers();
             services.AddDbContext<CategoryEventContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
@@ -42,6 +51,8 @@ namespace SearchAndFilter
             }
 
             app.UseRouting();
+
+            app.UseCors(MyAlloweSpecificOrigins);
 
             app.UseAuthorization();
 
