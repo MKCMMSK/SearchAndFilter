@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import axios from 'axios';
 
 const useStyles = makeStyles({
     formControl: {
@@ -18,12 +17,9 @@ export default function Filter(prop){
     const classes = useStyles();
 
     const handleChange = (event) => {
-        const name = event.target.name;
         prop.setCategory(event.target.value);
-        console.log(event.target.value);
     };
 
-    console.log(prop.categoryList, " inside filter")
     return(
         <FormControl variant="outlined" className={classes.formControl}>
             <Select
@@ -37,7 +33,6 @@ export default function Filter(prop){
             >   
                {
                    prop.categoryList.map(category => {
-                       console.log(category);
                        return(
                            <option value={category.categoryName}>{category.categoryName}</option>
                        )
