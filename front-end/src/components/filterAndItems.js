@@ -21,34 +21,27 @@ export default function FilterAndItems(prop){
     
     const classes = useStyles();
 
-    const [category, setCategory] = useState('All Category');
-    const [query, setQuery] = useState('');
-    
-    // useEffect({
-    //     whatToRender()
-    // }, [query, category])
-
     return(
         <Grid container className={classes.filterAndSearch} spacing={2}>
             <Grid item>
                 <Filter
                     className={classes.categoryDropDown}
                     categoryList = {prop.categoryList}
-                    setCategory = {setCategory}
-                    category = {category}
+                    setCategory = {prop.setCategory}
+                    category = {prop.category}
                 />
             </Grid>
             <Grid item>
                 <Search
-                    setQuery={setQuery}
+                    setQuery={prop.setQuery}
                 />
             </Grid>
             <Grid item xs={12} className={classes.items}>
                 
                 <ItemList
                     itemList={prop.itemList}
-                    category={category}
-                    query={query}
+                    category={prop.category}
+                    query={prop.query}
                 /> 
                
             </Grid>

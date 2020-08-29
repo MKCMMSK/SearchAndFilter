@@ -39,6 +39,8 @@ function App() {
   const [isLoaded, setIsLoaded] =useState(false);
   const [categoryList, setCategoryList] = useState([]);
   const[itemList, setItemList] = useState([]);
+  const [category, setCategory] = useState('All Category');
+  const [query, setQuery] = useState('');
 
   useEffect(()=> {
     axios.get('http://localhost:8000/api/categories')
@@ -51,7 +53,7 @@ function App() {
       setIsLoaded(true);
       setItemList(res.data);
     });
-  }, []);
+  }, [query, category]);
 
   const classes = useStyles();
 
@@ -62,7 +64,6 @@ function App() {
       <Suspense fallback={<div>loading....</div>}>
         <Grid container className={classes.root}>
             <Grid item xs={2} className={classes.sideColumn}>
-                {/* <Box/> */}
             </Grid>
             <Grid container xs={8} className={classes.mainView}>
                 <Grid item xs={12} className={classes.topSpacing}/>
@@ -73,13 +74,16 @@ function App() {
                 </Grid>
                 <Grid item xs={12}className={classes.results}>
                   <FilterAndItems
+                    category = {category}
+                    setCategory = {setCategory}
+                    query = {query}
+                    setQuery = {setQuery}
                     categoryList = {categoryList}
                     itemList = {itemList}  
                   />
                 </Grid>
             </Grid>
             <Grid item xs={2} className={classes.sideColumn}>
-                {/* <Box/> */}
             </Grid>
         </Grid>
         </Suspense>
