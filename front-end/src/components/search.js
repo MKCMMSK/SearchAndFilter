@@ -3,7 +3,6 @@ import Input from '@material-ui/core/OutlinedInput'
 import { makeStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button';
 import { createMuiTheme } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
 
 const theme = createMuiTheme({
     palette: {
@@ -37,7 +36,6 @@ export default function Search(prop) {
     const [inputQuery, setInputQuery] = useState("");
 
     const classes = useStyles();
-    const color = theme.palette.primary.main;
 
     function searchKeyword() {
         prop.setQuery(inputQuery)

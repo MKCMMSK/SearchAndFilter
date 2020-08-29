@@ -1,18 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
 import Item from './item';
-import { makeStyles } from '@material-ui/core/styles';
-
-const useStyles = makeStyles({
-    card: {
-        height: '25%',
-        width: '100%'
-    }
-});
 
 
 export default function ItemList(prop){
-    const classes = useStyles();
 
     if (prop.category === "All Category") {
         return (

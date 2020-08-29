@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SearchAndFilter.Models
 {
-    public class EventRequest
+    public class EventsRequest
     {
         [JsonProperty("pageIndex")]
         public int PageIndex { get; set; }

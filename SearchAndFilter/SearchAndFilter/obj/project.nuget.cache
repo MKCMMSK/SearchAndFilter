@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "gLhX4E5xuq3OlQ9Gqz3AOg22g9kOUGD3RrLTY8o/9ZcUHtH1Cvgxfu2yJghgbogSGQvNctzY5JipAQ0yg6Sctg==",
+  "dgSpecHash": "XBbQKcTt534AgzVz+pNBcR4wQdfhFobAoGvzq32UZTnKEFemD3otd5vnv4+DAJWqtbctHEOyt110IqoT62pMOw==",
   "success": true,
   "projectFilePath": "C:\\Users\\MythK\\source\\repos\\ECubedSearchAndFilter\\SearchAndFilter\\SearchAndFilter\\SearchAndFilter.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\MythK\\.nuget\\packages\\automapper\\10.0.0\\automapper.10.0.0.nupkg.sha512",
+    "C:\\Users\\MythK\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.0.1\\automapper.extensions.microsoft.dependencyinjection.8.0.1.nupkg.sha512",
     "C:\\Users\\MythK\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\MythK\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",
     "C:\\Users\\MythK\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\3.1.0\\microsoft.aspnetcore.razor.language.3.1.0.nupkg.sha512",
@@ -128,7 +130,7 @@
     "C:\\Users\\MythK\\.nuget\\packages\\system.objectmodel\\4.3.0\\system.objectmodel.4.3.0.nupkg.sha512",
     "C:\\Users\\MythK\\.nuget\\packages\\system.private.datacontractserialization\\4.3.0\\system.private.datacontractserialization.4.3.0.nupkg.sha512",
     "C:\\Users\\MythK\\.nuget\\packages\\system.reflection\\4.3.0\\system.reflection.4.3.0.nupkg.sha512",
-    "C:\\Users\\MythK\\.nuget\\packages\\system.reflection.emit\\4.3.0\\system.reflection.emit.4.3.0.nupkg.sha512",
+    "C:\\Users\\MythK\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
     "C:\\Users\\MythK\\.nuget\\packages\\system.reflection.emit.ilgeneration\\4.3.0\\system.reflection.emit.ilgeneration.4.3.0.nupkg.sha512",
     "C:\\Users\\MythK\\.nuget\\packages\\system.reflection.emit.lightweight\\4.3.0\\system.reflection.emit.lightweight.4.3.0.nupkg.sha512",
     "C:\\Users\\MythK\\.nuget\\packages\\system.reflection.extensions\\4.3.0\\system.reflection.extensions.4.3.0.nupkg.sha512",

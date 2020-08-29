@@ -41,8 +41,15 @@ function App() {
   const[itemList, setItemList] = useState([]);
   const [category, setCategory] = useState('All Category');
   const [query, setQuery] = useState('');
+  const [pageIndex, setPageIndex] = useState(1);
 
   useEffect(()=> {
+    let queryJson = {
+      'pageIndex': pageIndex,
+      'pageSize': 4,
+      'categoryId': category,
+      'keyword': query
+    }
     axios.get('http://localhost:8000/api/categories')
     .then(res => {
         setIsLoaded(true);
@@ -53,7 +60,21 @@ function App() {
       setIsLoaded(true);
       setItemList(res.data);
     });
-  }, [query, category]);
+    axios.post('http://localhost:8000/api/events/search',
+      {
+        'pageIndex': pageIndex,
+        'pageSize': 4,
+        'categoryId': category,
+        'keyword': query
+      }
+    )
+    .then(res => {
+      console.log(res.data);
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }, [query, category, pageIndex]);
 
   const classes = useStyles();
 
@@ -79,7 +100,9 @@ function App() {
                     query = {query}
                     setQuery = {setQuery}
                     categoryList = {categoryList}
-                    itemList = {itemList}  
+                    itemList = {itemList}
+                    pageIndex = {pageIndex}
+                    setPageIndex = {setPageIndex}
                   />
                 </Grid>
             </Grid>

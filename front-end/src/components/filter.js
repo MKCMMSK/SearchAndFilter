@@ -13,7 +13,7 @@ const useStyles = makeStyles({
 
 export default function Filter(prop){
     const classes = useStyles();
-
+    let optionKeys = 0;
     const handleChange = (event) => {
         prop.setCategory(event.target.value);
     };
@@ -32,11 +32,11 @@ export default function Filter(prop){
                {
                    prop.categoryList.map(category => {
                        return(
-                           <option value={category.categoryName}>{category.categoryName}</option>
+                           <option key={optionKeys++} value={category.categoryName}>{category.categoryName}</option>
                        )
                    })
                }
-                <option value={'All Category'} >All Category</option>
+                <option key={optionKeys} value={'All Category'} >All Category</option>
             </Select>
         </FormControl>
     );

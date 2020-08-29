@@ -85,6 +85,20 @@ namespace SearchAndFilter.Controllers
             return CreatedAtAction("GetEvent", new { id = @event.EventId }, @event);
         }
 
+        [HttpPost]
+        [Route("api/events/search")]
+        public async Task<ActionResult<Event>> Search(EventsRequest eventsRequest)
+        {
+            //var @event = await _context.Events.FindAsync(id);
+
+            //if (@event == null)
+            //{
+                //return NotFound();
+            //}
+
+            return null;
+        }
+
         // DELETE: api/Events/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Event>> DeleteEvent(int id)
