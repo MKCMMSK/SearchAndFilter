@@ -40,6 +40,7 @@ export default function FilterAndItems(prop){
                 
                 <ItemList
                     itemList={prop.itemList}
+                    category={category}
                 /> 
                
             </Grid>

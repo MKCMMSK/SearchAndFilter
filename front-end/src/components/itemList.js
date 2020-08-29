@@ -11,44 +11,66 @@ const useStyles = makeStyles({
 })
 export default function ItemList(prop){
     const classes = useStyles();
-    const [isLoaded, setIsLoaded] = useState(false);
-    const [list, setList] = useState([]);
 
-    console.log(prop.itemList, "itemlist")
-    
-    
-    return (
-        <InfiniteScroll
-            dataLength={9}
-            next={12}
-            hasMore={true}
-            style={{
-                paddingTop: 15,
-                height: '69vh',
-                overflow: 'visible'
-            }}
-        >
-            {prop.itemList.map(item => {
-                let categoryName;
-                if (item.categoryId === 1){
-                    categoryName = "Red";
-                } else {
-                    categoryName = "Blue";
-                }
-                return(
-                    <Item 
-                        title={item.eventName}
-                        category={categoryName}
-                        summary={item.eventSummary}
-                    />
-                )
-            })}
-{/* 
-            <Item className={classes.card}></Item>
-            <Item className={classes.card}></Item>
-            <Item className={classes.card}></Item>
-            <Item className={classes.card}></Item> */}
-            
-        </InfiniteScroll>
-    )
+    if (prop.category === "All Category") {
+        return (
+            <InfiniteScroll
+                dataLength={9}
+                next={12}
+                hasMore={true}
+                style={{
+                    paddingTop: 15,
+                    height: '69vh',
+                    overflow: 'visible'
+                }}
+            >
+                {prop.itemList.map(item => {
+                    let categoryName;
+                    if (item.categoryId === 1){
+                        categoryName = "Red";
+                    } else {
+                        categoryName = "Blue";
+                    }
+                    return(
+                        <Item 
+                            title={item.eventName}
+                            category={categoryName}
+                            summary={item.eventSummary}
+                        />
+                    )
+                })}            
+            </InfiniteScroll>
+        )
+    } else {
+        return (
+            <InfiniteScroll
+                dataLength={9}
+                next={12}
+                hasMore={true}
+                style={{
+                    paddingTop: 15,
+                    height: '69vh',
+                    overflow: 'visible'
+                }}
+            >
+                {prop.itemList.map(item => {
+                    let categoryName;
+                    if (item.categoryId === 1){
+                        categoryName = "Red";
+                    } else {
+                        categoryName = "Blue";
+                    }
+                    if (categoryName === prop.category){
+                        return(
+                            <Item 
+                                title={item.eventName}
+                                category={categoryName}
+                                summary={item.eventSummary}
+                            />
+                        )
+                    }
+                })}            
+            </InfiniteScroll>
+        )
+    }
 }
