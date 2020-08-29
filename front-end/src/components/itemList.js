@@ -31,13 +31,24 @@ export default function ItemList(prop){
                     } else {
                         categoryName = "Blue";
                     }
-                    return(
-                        <Item 
-                            title={item.eventName}
-                            category={categoryName}
-                            summary={item.eventSummary}
-                        />
-                    )
+                    if (!prop.query) {
+                        return(
+                            <Item 
+                                title={item.eventName}
+                                category={categoryName}
+                                summary={item.eventSummary}
+                            />
+                        )
+                    }else if (prop.query && (item.eventKeyword.includes(prop.query) || item.eventName.includes(prop.query))) {
+                        return(
+                            <Item 
+                                title={item.eventName}
+                                category={categoryName}
+                                summary={item.eventSummary}
+                            />
+                        )
+                    }
+                    
                 })}            
             </InfiniteScroll>
         )
@@ -60,14 +71,26 @@ export default function ItemList(prop){
                     } else {
                         categoryName = "Blue";
                     }
-                    if (categoryName === prop.category){
-                        return(
-                            <Item 
-                                title={item.eventName}
-                                category={categoryName}
-                                summary={item.eventSummary}
-                            />
-                        )
+                    if (!prop.query){
+                        if (categoryName === prop.category){
+                            return(
+                                <Item 
+                                    title={item.eventName}
+                                    category={categoryName}
+                                    summary={item.eventSummary}
+                                />
+                            )
+                        }
+                    } else {
+                        if (prop.query && (item.eventKeyword.includes(prop.query) || item.eventName.includes(prop.query)) && categoryName === prop.category) {
+                            return(
+                                <Item 
+                                    title={item.eventName}
+                                    category={categoryName}
+                                    summary={item.eventSummary}
+                                />
+                            )
+                        }
                     }
                 })}            
             </InfiniteScroll>

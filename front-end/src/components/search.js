@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Input from '@material-ui/core/OutlinedInput'
 import { makeStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button';
@@ -30,9 +30,25 @@ const useStyles = makeStyles({
         'color': 'white'
     }
 })
-export default function Search() {
+
+
+
+export default function Search(prop) {
+    const [inputQuery, setInputQuery] = useState("");
+
     const classes = useStyles();
     const color = theme.palette.primary.main;
+
+    function searchKeyword() {
+        prop.setQuery(inputQuery)
+    }
+
+    function handleChange(event) {
+        setInputQuery(event.target.value);
+        if (event.target.value === "") {
+            prop.setQuery("");
+        }
+    }
 
     return(
         <form>
@@ -40,8 +56,9 @@ export default function Search() {
                 placeholder={"Search for keywords"}
                 className={classes.searchBar}
                 disableUnderline={true}
+                onChange={handleChange}
             />
-            <Button variant="contained" color={"primary"} className={classes.button} disableFocusRipple={true}> Search </Button>
+            <Button variant="contained" color={"primary"} className={classes.button} disableFocusRipple={true} onClick={searchKeyword}> Search </Button>
         </form>
     )
 }

@@ -20,7 +20,8 @@ const useStyles = makeStyles({
 export default function FilterAndItems(prop){
     const classes = useStyles();
     const [category, setCategory] = useState('All Category');
-    const [filter, setFilter] = useState('');
+    const [query, setQuery] = useState('');
+    console.log(query, "insilde filter and items query")
     return(
         <Grid container className={classes.filterAndSearch} spacing={2}>
             <Grid item>
@@ -33,7 +34,7 @@ export default function FilterAndItems(prop){
             </Grid>
             <Grid item>
                 <Search
-                    setFilter={setFilter}
+                    setQuery={setQuery}
                 />
             </Grid>
             <Grid item xs={12} className={classes.items}>
@@ -41,6 +42,7 @@ export default function FilterAndItems(prop){
                 <ItemList
                     itemList={prop.itemList}
                     category={category}
+                    query={query}
                 /> 
                
             </Grid>
