@@ -35,6 +35,7 @@ const useStyles = makeStyles({
 })
 
 function App() {
+  
   const [isLoaded, setIsLoaded] =useState(false);
   const [categoryList, setCategoryList] = useState([]);
   const[itemList, setItemList] = useState([]);
@@ -65,7 +66,7 @@ function App() {
             </Grid>
             <Grid container xs={8} className={classes.mainView}>
                 <Grid item xs={12} className={classes.topSpacing}/>
-                <Grid container  className={classes.titleAndFilter}>
+                <Grid container className={classes.titleAndFilter}>
                   <Grid item xs={12} className={classes.title}>
                     <h1>Upcoming Events</h1>
                   </Grid>

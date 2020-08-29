@@ -55,7 +55,6 @@ export default function Search(prop) {
             <Input
                 placeholder={"Search for keywords"}
                 className={classes.searchBar}
-                disableUnderline={true}
                 onChange={handleChange}
             />
             <Button variant="contained" color={"primary"} className={classes.button} disableFocusRipple={true} onClick={searchKeyword}> Search </Button>

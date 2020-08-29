@@ -1,4 +1,4 @@
-import React,  { useState } from 'react';
+import React,  { useState, userEffect, useEffect } from 'react';
 import Filter from './filter';
 import ItemList from './itemList';
 import Search from './search';
@@ -18,10 +18,16 @@ const useStyles = makeStyles({
     }
 })
 export default function FilterAndItems(prop){
+    
     const classes = useStyles();
+
     const [category, setCategory] = useState('All Category');
     const [query, setQuery] = useState('');
-    console.log(query, "insilde filter and items query")
+    
+    // useEffect({
+    //     whatToRender()
+    // }, [query, category])
+
     return(
         <Grid container className={classes.filterAndSearch} spacing={2}>
             <Grid item>

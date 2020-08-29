@@ -8,21 +8,25 @@ const useStyles = makeStyles({
         height: '25%',
         width: '100%'
     }
-})
+});
+
+
 export default function ItemList(prop){
     const classes = useStyles();
 
     if (prop.category === "All Category") {
         return (
             <InfiniteScroll
-                dataLength={9}
-                next={12}
-                hasMore={true}
+                pageStart={0}
+                loadMore={false}
+                hasMore={false}
                 style={{
                     paddingTop: 15,
                     height: '69vh',
                     overflow: 'visible'
                 }}
+                loader={<div className="loader" key={0}>Loading ...</div>}
+                useWindow={false}
             >
                 {prop.itemList.map(item => {
                     let categoryName;
@@ -48,8 +52,7 @@ export default function ItemList(prop){
                             />
                         )
                     }
-                    
-                })}            
+                })}
             </InfiniteScroll>
         )
     } else {
@@ -63,7 +66,7 @@ export default function ItemList(prop){
                     height: '69vh',
                     overflow: 'visible'
                 }}
-            >
+            >   
                 {prop.itemList.map(item => {
                     let categoryName;
                     if (item.categoryId === 1){
@@ -92,7 +95,7 @@ export default function ItemList(prop){
                             )
                         }
                     }
-                })}            
+                })}
             </InfiniteScroll>
         )
     }

@@ -12,8 +12,6 @@ const useStyles = makeStyles({
 
 
 export default function Filter(prop){
-    // const [categoryList, setCategoryList] = useState([]);
-
     const classes = useStyles();
 
     const handleChange = (event) => {
