@@ -46,6 +46,7 @@ export default function FilterAndItems(prop){
                     query={prop.query}
                     pageIndex={prop.pageIndex}
                     setPageIndex={prop.setPageIndex}
+                    loadMore={prop.loadMore}
                 /> 
             </Grid>
         </Grid>

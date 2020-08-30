@@ -41,6 +41,7 @@ function App() {
   const [category, setCategory] = useState(0);
   const [query, setQuery] = useState("");
   const [pageIndex, setPageIndex] = useState(1);
+  const [loadMore, setLoadMore] = useState (true);
 
   let queryJson = {
     'pageIndex': pageIndex,
@@ -65,6 +66,9 @@ function App() {
       queryJson
     )
     .then(res => {
+      if (itemList.length === res.data.length) {
+        setLoadMore(false);
+      }
       setItemList(res.data);
     })
     .catch(err => {
@@ -76,7 +80,7 @@ function App() {
   useEffect(()=> {
 
     setPageIndex(1);
-
+    setLoadMore(true);
     axios.post('http://localhost:8000/api/events/search',
       queryJson
     )
@@ -111,6 +115,7 @@ function App() {
             itemList = {itemList}
             pageIndex = {pageIndex}
             setPageIndex = {setPageIndex}
+            loadMore = {loadMore}
           />
         </Grid>
       </Grid>

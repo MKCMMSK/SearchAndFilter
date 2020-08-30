@@ -12,7 +12,13 @@ export default function ItemList(prop){
         <InfiniteScroll
             dataLength={prop.pageIndex}
             next={onLoadMore.bind(null,prop.pageIndex + 1)}
-            hasMore={prop.pageIndex  < 10000}
+            hasMore={prop.loadMore}
+            loader={<h4>Loading...</h4>}
+            endMessage={
+                <p style={{textAlign: 'center'}}>
+                    <b>No more events!</b>
+                </p>
+            }
             style={{
                 paddingTop: 15,
                 height: '69vh',
