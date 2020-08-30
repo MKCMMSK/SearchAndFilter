@@ -18,10 +18,5 @@ namespace SearchAndFilter.Data
         {
             return _context.Categories.ToList();
         }
-
-        public Category GetCategoryById(int id)
-        {
-            return _context.Categories.FirstOrDefault(p => p.CategoryId == id);
-        }
     }
 }

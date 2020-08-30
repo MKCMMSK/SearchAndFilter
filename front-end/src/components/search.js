@@ -4,17 +4,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button';
 import { createMuiTheme } from '@material-ui/core/styles';
 
-const theme = createMuiTheme({
-    palette: {
-        primary: {
-            main: '#2979ff'
-        }
-    }
-})
 const useStyles = makeStyles({
-    searchForm: {
-        width: '60%'
-    },
     searchBar: {
         height: 55,
         width: 334,
@@ -23,10 +13,11 @@ const useStyles = makeStyles({
     button: {
         height: 55,
         width: 100,
-        'margin-left': 15,
-        'margin-bottom': 2,
-        'font-size': 10,
-        'color': 'white'
+        marginLeft: 15,
+        marginBottom: 2,
+        fontSize: 10,
+        color: 'white',
+        backgroundColor: '#2979ff'
     }
 })
 
@@ -53,7 +44,7 @@ export default function Search(prop) {
                 className={classes.searchBar}
                 onChange={handleChange}
             />
-            <Button variant="contained" color={"primary"} className={classes.button} disableFocusRipple={true} onClick={searchKeyword}> Search </Button>
+            <Button variant="contained" color={'inherit'} className={classes.button} disableFocusRipple={true} onClick={searchKeyword}> Search </Button>
         </form>
     )
 }

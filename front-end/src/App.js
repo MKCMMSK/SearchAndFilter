@@ -8,7 +8,6 @@ const useStyles = makeStyles({
   root: {
       flexGrow: 1,
       height: '100vh',
-      width: '100vw'
   },
   sideColumn: {
       height: '100vh',
@@ -55,10 +54,13 @@ function App() {
     axios.get('http://localhost:8000/api/categories')
     .then(res => {
         setCategoryList(res.data);
+    }).catch(err => {
+      console.log(err)
     });
   }, []);
 
   //called everytime we need to load more events
+  //if load more events comes back with the same result length, loadMore set to false
   useEffect(()=> {
     console.log(queryJson);
     

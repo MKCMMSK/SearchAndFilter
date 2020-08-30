@@ -16,14 +16,15 @@ const useStyles = makeStyles({
     items: {
         height: "72vh",
         width: "10vw"
-    }
+    },
+    
 })
 export default function FilterAndItems(prop){
     
     const classes = useStyles();
 
     return(
-        <Grid container className={classes.filterAndSearch} spacing={0} style={{
+        <Grid container className={classes.filterAndSearch} spacing={2} style={{
             margin: 0,
             width: '100%',
           }}>
