@@ -30,8 +30,6 @@ const useStyles = makeStyles({
     }
 })
 
-
-
 export default function Search(prop) {
     const [inputQuery, setInputQuery] = useState("");
 

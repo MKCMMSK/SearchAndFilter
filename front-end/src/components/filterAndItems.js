@@ -8,13 +8,14 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles({
     filterAndSearch: {
         height: "5%",
-        width: "100%"
+        width: "70%"
     },
     categoryDropDown: {
         width: "20"
     },
     items: {
-        height: "72vh"
+        height: "72vh",
+        width: "10vw"
     }
 })
 export default function FilterAndItems(prop){
@@ -22,7 +23,10 @@ export default function FilterAndItems(prop){
     const classes = useStyles();
 
     return(
-        <Grid container className={classes.filterAndSearch} spacing={2}>
+        <Grid container className={classes.filterAndSearch} spacing={0} style={{
+            margin: 0,
+            width: '100%',
+          }}>
             <Grid item>
                 <Filter
                     className={classes.categoryDropDown}
@@ -37,13 +41,12 @@ export default function FilterAndItems(prop){
                 />
             </Grid>
             <Grid item xs={12} className={classes.items}>
-                
                 <ItemList
                     itemList={prop.itemList}
-                    category={prop.category}
                     query={prop.query}
+                    pageIndex={prop.pageIndex}
+                    setPageIndex={prop.setPageIndex}
                 /> 
-               
             </Grid>
         </Grid>
     );

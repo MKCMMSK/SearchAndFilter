@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from '@material-ui/core/Card';
+import Paper from '@material-ui/core/Paper';
 import { makeStyles} from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
@@ -7,7 +7,7 @@ import Grid from '@material-ui/core/Grid';
 const useStyles = makeStyles({
     root: {
         width: '100%',
-        height: '25%',
+        height: 190,
     },
     title: {
         paddingLeft: 15,
@@ -32,9 +32,9 @@ const useStyles = makeStyles({
 })
 
 export default function Item(prop) {
-
-    const classes = useStyles();
+    
     let redOrBlue = true;
+    const classes = useStyles();
 
     if (prop.category === "Red") {
         redOrBlue = true;
@@ -42,7 +42,7 @@ export default function Item(prop) {
         redOrBlue = false;
     }
     return(
-        <Card className={classes.root}>
+        <Paper className={classes.root} elevation={0}>
             <Grid container
                 alignItems="flex-end"
             >
@@ -56,6 +56,6 @@ export default function Item(prop) {
             <Typography className={classes.summary} variant="body2" color='textSecondary'>
                 {prop.summary}
             </Typography>
-        </Card>
+        </Paper>
     )
 }
