@@ -10,5 +10,6 @@ namespace SearchAndFilter.Data
     {
         IEnumerable<Event> GetAllEvents();
         Event GetEventsByCategory(int id);
+        List<Event> Search(EventsRequest eventRequest);
     }
 }

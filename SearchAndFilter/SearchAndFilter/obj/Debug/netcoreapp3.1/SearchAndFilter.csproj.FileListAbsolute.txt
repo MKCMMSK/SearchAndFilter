@@ -153,3 +153,4 @@ C:\Users\MythK\source\repos\ECubedSearchAndFilter\SearchAndFilter\SearchAndFilte
 C:\Users\MythK\source\repos\ECubedSearchAndFilter\SearchAndFilter\SearchAndFilter\bin\Debug\netcoreapp3.1\AutoMapper.dll
 C:\Users\MythK\source\repos\ECubedSearchAndFilter\SearchAndFilter\SearchAndFilter\obj\Debug\netcoreapp3.1\SearchAndFilter.csproj.CoreCompileInputs.cache
 C:\Users\MythK\source\repos\ECubedSearchAndFilter\SearchAndFilter\SearchAndFilter\obj\Debug\netcoreapp3.1\SearchAndFilter.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\MythK\source\repos\ECubedSearchAndFilter\SearchAndFilter\SearchAndFilter\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

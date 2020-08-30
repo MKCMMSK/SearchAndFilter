@@ -85,18 +85,32 @@ namespace SearchAndFilter.Controllers
             return CreatedAtAction("GetEvent", new { id = @event.EventId }, @event);
         }
 
+        [Route("search")]
         [HttpPost]
-        [Route("api/events/search")]
-        public async Task<ActionResult<Event>> Search(EventsRequest eventsRequest)
+        public async Task<ActionResult<List<Event>>> Search(EventsRequest eventsRequest)
         {
-            //var @event = await _context.Events.FindAsync(id);
+            if (eventsRequest.CategoryId == 0 && eventsRequest.Keyword == "") //no category && no keyword
+            {
+                var @event = await _context.Events.Take(eventsRequest.PageSize * eventsRequest.PageIndex).ToListAsync();
+                return @event;
+            } else if (eventsRequest.CategoryId == 0 && eventsRequest.Keyword != "") //no category && has keyword, checks both EventKeyword and EventName
+            {
+                var @event = await _context.Events.Where(e => e.EventKeyword.Contains(eventsRequest.Keyword) || e.EventName.Contains(eventsRequest.Keyword)).Take(eventsRequest.PageSize * eventsRequest.PageIndex).ToListAsync();
+                return @event;
+            } else if (eventsRequest.CategoryId != 0 && eventsRequest.Keyword == "") // has category and has no keyword
+            {
+                var @event = await _context.Events.Where(e => e.CategoryId == eventsRequest.CategoryId).Take(eventsRequest.PageSize * eventsRequest.PageIndex).ToListAsync();
+                return @event;
+            }else if ((eventsRequest.CategoryId == 1 || eventsRequest.CategoryId == 2) && eventsRequest.Keyword != "") //has category and has a keyword
+            {
+                var @event = await _context.Events.Where(e => e.EventKeyword.Contains(eventsRequest.Keyword) && e.CategoryId == eventsRequest.CategoryId).Take(eventsRequest.PageSize * eventsRequest.PageIndex).ToListAsync();
+                return @event;
+            } else
+            {
+                return NotFound();
+            }
 
-            //if (@event == null)
-            //{
-                //return NotFound();
-            //}
 
-            return null;
         }
 
         // DELETE: api/Events/5

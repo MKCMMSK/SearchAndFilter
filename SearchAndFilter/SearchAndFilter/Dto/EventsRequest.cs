@@ -15,7 +15,7 @@ namespace SearchAndFilter.Models
         [JsonProperty("categoryId")]
         public int? CategoryId { get; set; }
         [JsonProperty("keyword")]
-        public int Keyword { get; set; }
+        public string Keyword { get; set; }
 
     }
 }

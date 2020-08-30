@@ -4,6 +4,8 @@ import { makeStyles } from '@material-ui/core/styles'
 import FilterAndItems from './components/filterAndItems';
 import axios from 'axios';
 
+import TestCategories from './Test/TestCategories';
+
 const useStyles = makeStyles({
   root: {
       flexGrow: 1,
@@ -35,12 +37,14 @@ const useStyles = makeStyles({
 })
 
 function App() {
-  
-  const [isLoaded, setIsLoaded] =useState(false);
+
+  TestCategories();
+
+  // const [isLoaded, setIsLoaded] =useState(false);
   const [categoryList, setCategoryList] = useState([]);
   const[itemList, setItemList] = useState([]);
-  const [category, setCategory] = useState('All Category');
-  const [query, setQuery] = useState('');
+  const [category, setCategory] = useState(0);
+  const [query, setQuery] = useState("");
   const [pageIndex, setPageIndex] = useState(1);
 
   useEffect(()=> {
@@ -52,24 +56,19 @@ function App() {
     }
     axios.get('http://localhost:8000/api/categories')
     .then(res => {
-        setIsLoaded(true);
+        // setIsLoaded(true);
         setCategoryList(res.data);
     });
-    axios.get('http://localhost:8000/api/events')
-    .then(res => {
-      setIsLoaded(true);
-      setItemList(res.data);
-    });
+    // axios.get('http://localhost:8000/api/events')
+    // .then(res => {
+    //   // setIsLoaded(true);
+    //   setItemList(res.data);
+    // });
     axios.post('http://localhost:8000/api/events/search',
-      {
-        'pageIndex': pageIndex,
-        'pageSize': 4,
-        'categoryId': category,
-        'keyword': query
-      }
+      queryJson
     )
     .then(res => {
-      console.log(res.data);
+      setItemList(res.data);
     })
     .catch(err => {
       console.log(err)
@@ -78,9 +77,9 @@ function App() {
 
   const classes = useStyles();
 
-  if (!isLoaded) {
-    return <div>Loading...</div>
-  } else {
+  // if (!isLoaded) {
+  //   return <div>Loading...</div>
+  // } else {
     return (
       <Suspense fallback={<div>loading....</div>}>
         <Grid container className={classes.root}>
@@ -111,7 +110,7 @@ function App() {
         </Grid>
         </Suspense>
     )
-  }
+  // }
 }
 
 export default App;
