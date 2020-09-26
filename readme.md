@@ -27,3 +27,6 @@ This is the scrolled down view where pagination is involved, the infinite scroll
 
 !["Filter Red"](https://github.com/MShaoK/SearchAndFilter/blob/master/screenshots/FilterRed.png?raw=true)
 This demostrates the filtering of Red items.
+
+!["Search Keyword"](https://github.com/MShaoK/SearchAndFilter/blob/master/screenshots/SearchKeyword.png?raw=true)
+This is searching a keyword that is associated with the database item. In the database there is a column specifically used as keywords and it is searching for that.
