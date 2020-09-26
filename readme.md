@@ -22,7 +22,8 @@ localhost:3000
 !["Initial Load"](https://github.com/MShaoK/SearchAndFilter/blob/master/screenshots/.NetInfiniteScroll.png?raw=true)
 This is the initial load of the website.
 
-!["Scrolled Down"](https://github.com/MShaoK/SearchAndFilter/blob/master/screenshots/.NetInfiniteScrolledDown.pngraw=true)
+!["Scrolled Down"](https://github.com/MShaoK/SearchAndFilter/blob/master/screenshots/.NetInfiniteScrolledDown.png?raw=true)
 This is the scrolled down view where pagination is involved, the infinite scroll populates the next page of content from the database. As of right now, it loads 4/page and continues to populate the page until we run out of items from the database.
 
-
+!["Filter Red"](https://github.com/MShaoK/SearchAndFilter/blob/master/screenshots/FilterRed.png?raw=true)
+This demostrates the filtering of Red items.
