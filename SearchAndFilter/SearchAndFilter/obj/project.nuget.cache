@@ -1,10 +1,6 @@
 {
   "version": 2,
-<<<<<<< HEAD
-  "dgSpecHash": "WVvlGWuNkJykNkSsAkc1HsepeWl6NPa5dJarazUc6sI5Nh7HR+lDxym+EdSH+oY9YAph26BWo1tYQE5a0otXtw==",
-=======
-  "dgSpecHash": "XBbQKcTt534AgzVz+pNBcR4wQdfhFobAoGvzq32UZTnKEFemD3otd5vnv4+DAJWqtbctHEOyt110IqoT62pMOw==",
->>>>>>> refactorItemList
+  "dgSpecHash": "ukVm6BXPX6Jjckmpe87U70QXF6GyCLYAbMxs5PedgTBvGwlIwjQ5sZxPTOgQxYzQujvVwl1G64vzKy0kSZ+HLA==",
   "success": true,
   "projectFilePath": "C:\\Users\\MythK\\source\\repos\\ECubedSearchAndFilter\\SearchAndFilter\\SearchAndFilter\\SearchAndFilter.csproj",
   "expectedPackageFiles": [
@@ -180,5 +176,12 @@
     "C:\\Users\\MythK\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\MythK\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\MythK\\source\\repos\\ECubedSearchAndFilter\\SearchAndFilter\\SearchAndFilter\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
