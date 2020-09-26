@@ -17,3 +17,6 @@ localhost:8000
 
 frontend is hosted on port 3000
 localhost:3000
+
+**Screenshots & Descriptions**
+![initial load](https://github.com/MShaoK/SearchAndFilter/blob/master/screenshots/.NetInfiniteScroll.png?raw=true)
