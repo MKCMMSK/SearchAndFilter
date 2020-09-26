@@ -19,4 +19,10 @@ frontend is hosted on port 3000
 localhost:3000
 
 **Screenshots & Descriptions**
-![initial load](https://github.com/MShaoK/SearchAndFilter/blob/master/screenshots/.NetInfiniteScroll.png?raw=true)
+!["Initial Load"](https://github.com/MShaoK/SearchAndFilter/blob/master/screenshots/.NetInfiniteScroll.png?raw=true)
+This is the initial load of the website.
+
+!["Scrolled Down"](https://github.com/MShaoK/SearchAndFilter/blob/master/screenshots/.NetInfiniteScrolledDown.pngraw=true)
+This is the scrolled down view where pagination is involved, the infinite scroll populates the next page of content from the database. As of right now, it loads 4/page and continues to populate the page until we run out of items from the database.
+
+
