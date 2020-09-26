@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -33,13 +34,16 @@ namespace SearchAndFilter
                 options.AddPolicy(name: MyAlloweSpecificOrigins,
                                   builder =>
                                   {
-                                      builder.WithOrigins("http://localhost:3000");
+                                      builder.WithOrigins("http://localhost:3000")
+                                      .AllowAnyHeader()
+                                      .AllowAnyMethod();
                                   });
             });
             services.AddControllers();
             services.AddDbContext<CategoryEventContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
             services.AddScoped<ICategoryRepo, SqlCategoryRepo>();
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

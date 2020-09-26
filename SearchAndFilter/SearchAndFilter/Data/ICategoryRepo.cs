@@ -9,6 +9,5 @@ namespace SearchAndFilter.Data
     public interface ICategoryRepo
     {
         IEnumerable<Category> GetCategories();
-        Category GetCategoryById(int id);
     }
 }

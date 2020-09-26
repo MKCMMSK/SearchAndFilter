@@ -10,16 +10,15 @@ const useStyles = makeStyles({
       }
 })
 
-
 export default function Filter(prop){
-    // const [categoryList, setCategoryList] = useState([]);
 
     const classes = useStyles();
+    let optionKeys = 0;
 
     const handleChange = (event) => {
-        prop.setCategory(event.target.value);
+        prop.setCategory(parseInt(event.target.value));
     };
-
+    
     return(
         <FormControl variant="outlined" className={classes.formControl}>
             <Select
@@ -34,11 +33,11 @@ export default function Filter(prop){
                {
                    prop.categoryList.map(category => {
                        return(
-                           <option value={category.categoryName}>{category.categoryName}</option>
+                           <option key={optionKeys++} value={category.categoryId}>{category.categoryName}</option>
                        )
                    })
                }
-                <option value={'All Category'} >All Category</option>
+                <option key={optionKeys} value={0} >All Category</option>
             </Select>
         </FormControl>
     );

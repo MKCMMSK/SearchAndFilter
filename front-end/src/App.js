@@ -8,11 +8,10 @@ const useStyles = makeStyles({
   root: {
       flexGrow: 1,
       height: '100vh',
-      width: '100vw'
   },
   sideColumn: {
       height: '100vh',
-      width: '15vw',
+      width: '5vw',
   },
   topSpacing: {
       height: '3vh',
@@ -35,55 +34,97 @@ const useStyles = makeStyles({
 })
 
 function App() {
-  const [isLoaded, setIsLoaded] =useState(false);
-  const [categoryList, setCategoryList] = useState([]);
-  const[itemList, setItemList] = useState([]);
 
-  useEffect(()=> {
+  const [categoryList, setCategoryList] = useState([]);
+  const [itemList, setItemList] = useState([]);
+  const [category, setCategory] = useState(0);
+  const [query, setQuery] = useState("");
+  const [pageIndex, setPageIndex] = useState(1);
+  const [loadMore, setLoadMore] = useState (true);
+
+  let queryJson = {
+    'pageIndex': pageIndex,
+    'pageSize': 4,
+    'categoryId': category,
+    'keyword': query
+  }
+
+  //called once to retrieve category List
+  useEffect(()=>{
     axios.get('http://localhost:8000/api/categories')
     .then(res => {
-        setIsLoaded(true);
         setCategoryList(res.data);
-    });
-    axios.get('http://localhost:8000/api/events')
-    .then(res => {
-      setIsLoaded(true);
-      setItemList(res.data);
+    }).catch(err => {
+      console.log(err)
     });
   }, []);
 
+  //called everytime we need to load more events
+  //if load more events comes back with the same result length, loadMore set to false
+  useEffect(()=> {
+    console.log(queryJson);
+    
+    axios.post('http://localhost:8000/api/events/search',
+      queryJson
+    )
+    .then(res => {
+      if (itemList.length === res.data.length) {
+        setLoadMore(false);
+      }
+      setItemList(res.data);
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }, [,pageIndex]);
+
+  //called everytime new query or when category is changed, also a small feature is when query is emptied it will automatically query with empty string to refresh
+  useEffect(()=> {
+
+    setPageIndex(1);
+    setLoadMore(true);
+    axios.post('http://localhost:8000/api/events/search',
+      queryJson
+    )
+    .then(res => {
+      setItemList(res.data);
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }, [query,category])
+
   const classes = useStyles();
 
-  if (!isLoaded) {
-    return <div>Loading...</div>
-  } else {
-    return (
-      <Suspense fallback={<div>loading....</div>}>
-        <Grid container className={classes.root}>
-            <Grid item xs={2} className={classes.sideColumn}>
-                {/* <Box/> */}
-            </Grid>
-            <Grid container xs={8} className={classes.mainView}>
-                <Grid item xs={12} className={classes.topSpacing}/>
-                <Grid container  className={classes.titleAndFilter}>
-                  <Grid item xs={12} className={classes.title}>
-                    <h1>Upcoming Events</h1>
-                  </Grid>
-                </Grid>
-                <Grid item xs={12}className={classes.results}>
-                  <FilterAndItems
-                    categoryList = {categoryList}
-                    itemList = {itemList}  
-                  />
-                </Grid>
-            </Grid>
-            <Grid item xs={2} className={classes.sideColumn}>
-                {/* <Box/> */}
-            </Grid>
+  return (
+    <Grid container className={classes.root}>
+      <Grid item xs={2} className={classes.sideColumn}>
+      </Grid>
+      <Grid container xs={8} className={classes.mainView}>
+        <Grid item xs={12} className={classes.topSpacing}/>
+        <Grid container className={classes.titleAndFilter}>
+        <Grid item xs={12} className={classes.title}>
+          <h1>Upcoming Events</h1>
         </Grid>
-        </Suspense>
-    )
-  }
+        </Grid>
+        <Grid item xs={12}className={classes.results}>
+          <FilterAndItems
+            category = {category}
+            setCategory = {setCategory}
+            query = {query}
+            setQuery = {setQuery}
+            categoryList = {categoryList}
+            itemList = {itemList}
+            pageIndex = {pageIndex}
+            setPageIndex = {setPageIndex}
+            loadMore = {loadMore}
+          />
+        </Grid>
+      </Grid>
+      <Grid item xs={2} className={classes.sideColumn}>
+      </Grid>
+    </Grid>
+  )
 }
 
 export default App;
