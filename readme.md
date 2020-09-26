@@ -33,3 +33,6 @@ This is searching a keyword that is associated with the database item. In the da
 
 !["Search Name"](https://github.com/MShaoK/SearchAndFilter/blob/master/screenshots/SearchName.png?raw=true)
 This search bar also searches for the names as well, or rather just the string, so even partial or incomplete strings can still search for the items.
+
+!["Search Name and Filter by blue"](https://github.com/MShaoK/SearchAndFilter/blob/master/screenshots/FilterBlue%26SearchByName.png?raw=true)
+This search demostrates the incomplete search along with a filter of only blue items.
